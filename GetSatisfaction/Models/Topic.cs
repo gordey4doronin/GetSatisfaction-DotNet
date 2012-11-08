@@ -46,7 +46,8 @@ namespace GetSatisfaction.Models
             get { return _userDefinedCode; }
             set
             {
-                _userDefinedCode = Convert.ToBoolean(value) == false ? null : value;
+                bool parsed;
+                _userDefinedCode = Boolean.TryParse(value, out parsed) == false ? value : null;
             }
         }
 
